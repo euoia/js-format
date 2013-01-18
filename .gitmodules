@@ -1,3 +1,6 @@
 [submodule "plugin/lib/node_modules/js-beautify"]
 	path = plugin/lib/node_modules/js-beautify
 	url = https://github.com/einars/js-beautify
+[submodule "plugin/lib/lib/js-beautify"]
+	path = plugin/lib/lib/js-beautify
+	url = git@github.com:euoia/js-beautify.git
