@@ -1,11 +1,13 @@
 Beautify JavaScript, HTML and CSS files in vim powered by js-beautify (https://github.com/einars/js-beautify).
 
 Installation with pathogen (https://github.com/tpope/vim-pathogen):
+---
 
     cd ~/.vim/bundle
     git clone --recursive https://github.com/euoia/vim-jsbeautify-simple
 
-Usage:
+Usage
+---
 
     :JsBeautifySimple
 
@@ -16,7 +18,8 @@ Consider using a mapping such as:
     autocmd FileType javascript nmap <silent> <buffer> <F1> :JsBeautifySimple<cr>
     autocmd FileType javascript vmap <silent> <buffer> <F1> :JsBeautifySimple<cr>
 
-Config:
+Config
+---
 Optionally set the js-beautifier config file with b:JsBeautifySimple_config
 
 Consider an autocmd to set the config:
