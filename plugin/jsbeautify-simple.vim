@@ -1,6 +1,6 @@
 let s:plugin_root_dir  = expand("<sfile>:h")
 
-function JsBeautifySimple () range
+function s:JsBeautifySimple () range
     let s:plugin_lib_dir  = s:plugin_root_dir . "/lib/"
 
     if exists("g:JsBeautifySimple_engine")
@@ -18,6 +18,6 @@ function JsBeautifySimple () range
     endif
 endfunction
 
-command -range=% JsBeautifySimple <line1>,<line2>call JsBeautifySimple()
+command -range=% JsBeautifySimple <line1>,<line2>call s:JsBeautifySimple()
 
 " TODO: The config file should be customizable.
