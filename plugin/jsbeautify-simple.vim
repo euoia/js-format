@@ -15,8 +15,15 @@ function! s:JsBeautifySimple () range
         let s:config = ""
     endif
 
+    if exists("b:JsBeautifySimple_filetype")
+        let s:filetype = " -t " . b:JsBeautifySimple_filetype . " "
+    else
+        " Use the file extension.
+        let s:filetype = " -t " . expand("%:e")
+    endif
+
     if executable(s:engine)
-        execute a:firstline . "," . a:lastline . "!" . s:engine . " " . fnameescape(s:plugin_lib_dir . "/beautify.js") . s:config . " -"
+        execute a:firstline . "," . a:lastline . "!" . s:engine . " " . fnameescape(s:plugin_lib_dir . "/beautify.js") . s:filetype . s:config . " -"
     else
         " Executable bin doesn't exist
         echoerr('Unable to run ' . s:engine . '.')
