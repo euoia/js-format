@@ -1,5 +1,10 @@
 Beautify JavaScript, HTML and CSS files in vim using https://github.com/einars/js-beautify.
 
+Installation:
+
+    cd ~/.vim/bundle
+    git clone --recursive https://github.com/euoia/vim-jsbeautify-simple
+
 Usage:
 
     :JsBeautifySimple
