@@ -27,7 +27,7 @@ Consider an autocmd to set the config:
 
     autocmd FileType javascript let b:JsBeautifySimple_config = "~/.js-beautify.json"
 
-Configuration options and their defaults:
+Configuration options and their defaults. Override just what you need:
 
     {
         "indent_size": 4,
