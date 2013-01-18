@@ -1,34 +1,40 @@
 var jsbeautify = require('js-beautify').js_beautify,
-	fs = require('fs'),
-	path = require('path');
+    fs = require('fs'),
+    path = require('path'),
+    argv = require('optimist')
+        .options('c', {
+        alias: 'config',
+        default: ''
+    })
+        .argv;
 
-var filename = process.argv[2],
-	configFile = null,
-	opts = {};
+var filename = argv._[0],
+    configFile = argv.c,
+    opts = {};
 
 function getUserHome() {
-		return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
+    return process.env[(process.platform == 'win32') ? 'USERPROFILE' : 'HOME'];
 }
 
 if (filename === undefined) {
-	console.log('usage: ' + process.argv[1] + ' filename');
-	console.log(' or provide - as the filename to read from stdin.');
-	process.exit(1);
+    console.log('usage: ' + process.argv[1] + ' filename');
+    console.log(' or provide - as the filename to read from stdin.');
+    process.exit(1);
 }
 
 if (filename === '-') {
-	data = fs.readFileSync('/dev/stdin').toString();
+    data = fs.readFileSync('/dev/stdin').toString();
 } else {
-	data = fs.readFileSync(filename);
+    data = fs.readFileSync(filename);
 }
 
-configFile = path.join(getUserHome(), '.euoia-js-beautify.json');
-
-if (fs.existsSync(configFile)) {
-	opts = require(configFile)
-} else {
-	console.log('configFile ' + configFile + ' does not exist');
-	opts = {};
+if (configFile !== '') {
+    if (fs.existsSync(configFile)) {
+        opts = require(configFile)
+    } else {
+        process.stderr.write('configFile ' + configFile + ' does not exist');
+        process.exit(1);
+    }
 }
 
 var result = jsbeautify(data.toString(), opts);
