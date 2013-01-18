@@ -1,6 +1,7 @@
 Beautify JavaScript, HTML and CSS files in vim using https://github.com/einars/js-beautify.
 
 Usage:
+
     :JsBeautifySimple
 
 Works with a region, or by default the whole file.
