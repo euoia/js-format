@@ -21,4 +21,3 @@ endfunction
 command -range=% JsBeautifySimple <line1>,<line2>call JsBeautifySimple()
 
 " TODO: The config file should be customizable.
-" TODO: Make lib/node_modules/js-beautify a git submodule
