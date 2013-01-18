@@ -23,3 +23,4 @@ nmap <C-f> :JsBeautifySimple<cr>
 vmap <C-f> :JsBeautifySimple<cr>
 
 " TODO: The config file should be customizable.
+" TODO: The mapping should not be specified here.
