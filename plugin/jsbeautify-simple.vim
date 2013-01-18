@@ -24,3 +24,4 @@ vmap <C-f> :JsBeautifySimple<cr>
 
 " TODO: The config file should be customizable.
 " TODO: The mapping should not be specified here.
+" TODO: Make lib/node_modules/js-beautify a git submodule
