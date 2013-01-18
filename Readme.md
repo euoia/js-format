@@ -46,6 +46,8 @@ Configuration options and their defaults. Override just what you need:
         "unescape_strings": false
     }
 
+Addenda
+---
 Requires node executable.
 
 Inspired by https://github.com/maksimr/vim-jsbeautify.
