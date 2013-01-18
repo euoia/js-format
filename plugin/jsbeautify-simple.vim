@@ -19,9 +19,6 @@ function JsBeautifySimple () range
 endfunction
 
 command -range=% JsBeautifySimple <line1>,<line2>call JsBeautifySimple()
-nmap <C-f> :JsBeautifySimple<cr>
-vmap <C-f> :JsBeautifySimple<cr>
 
 " TODO: The config file should be customizable.
-" TODO: The mapping should not be specified here.
 " TODO: Make lib/node_modules/js-beautify a git submodule
