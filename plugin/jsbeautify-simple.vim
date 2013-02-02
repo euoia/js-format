@@ -1,6 +1,6 @@
 let s:plugin_root_dir  = expand("<sfile>:h")
 
-function! s:JsBeautifySimple () range
+function! s:JsBeautifySimple (line1, line2) range
     let s:plugin_lib_dir  = s:plugin_root_dir . "/lib/"
 
     if exists("g:JsBeautifySimple_engine")
@@ -23,12 +23,19 @@ function! s:JsBeautifySimple () range
     endif
 
     if executable(s:engine)
-        execute a:firstline . "," . a:lastline . "!" . s:engine . " " . fnameescape(s:plugin_lib_dir . "/beautify.js") . s:filetype . s:config . " -"
+        let cursor_position = getpos('.')
+        execute a:line1 . "," . a:line2 . "!" . s:engine . " " . fnameescape(s:plugin_lib_dir . "/beautify.js") . s:filetype . s:config . " -"
+        call setpos('.', cursor_position)
     else
         " Executable bin doesn't exist
         echoerr('Unable to run ' . s:engine . '.')
         return 1
     endif
+
 endfunction
 
-command -range=% JsBeautifySimple <line1>,<line2>call s:JsBeautifySimple()
+command! -range=% JsBeautifySimple call s:JsBeautifySimple(<line1>, <line2>)
+
+autocmd FileType html let b:JsBeautifySimple_filetype = "html"
+autocmd FileType javascript let b:JsBeautifySimple_filetype = "js"
+autocmd FileType css let b:JsBeautifySimple_filetype = "css"
