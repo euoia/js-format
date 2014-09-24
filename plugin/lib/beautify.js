@@ -45,7 +45,7 @@ if (filename === '-') {
 }
 
 if (configFile !== '') {
-	opts = require(configFile)
+	opts = JSON.parse(fs.readFileSync(configFile, 'utf8'));
 }
 
 switch (type) {
