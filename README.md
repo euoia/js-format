@@ -1,7 +1,8 @@
 js-format
 ---------
-Format JavaScript, HTML and CSS files in vim powered by js-beautify
-(https://github.com/einars/js-beautify).
+Vim plugin to format JavaScript, HTML and CSS.
+
+Powered by [js-beautify](https://github.com/einars/js-beautify).
 
 ### Usage
 ```
