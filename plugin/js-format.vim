@@ -1,22 +1,22 @@
 let s:plugin_root_dir  = expand("<sfile>:h")
 
-function! s:JsBeautifySimple (line1, line2) range
+function! s:JsFormat (line1, line2) range
     let s:plugin_lib_dir  = s:plugin_root_dir . "/lib/"
 
-    if exists("g:JsBeautifySimple_engine")
-        let s:engine = g:JsBeautifySimple_engine
+    if exists("g:JsFormat_engine")
+        let s:engine = g:JsFormat_engine
     else
         let s:engine = "node"
     endif
 
-    if exists("b:JsBeautifySimple_config")
-        let s:config = " -c " . b:JsBeautifySimple_config . " "
+    if exists("b:JsFormat_config")
+        let s:config = " -c " . b:JsFormat_config . " "
     else
         let s:config = ""
     endif
 
-    if exists("b:JsBeautifySimple_filetype")
-        let s:filetype = " -t " . b:JsBeautifySimple_filetype . " "
+    if exists("b:JsFormat_filetype")
+        let s:filetype = " -t " . b:JsFormat_filetype . " "
     else
         " Use the file extension.
         let s:filetype = " -t " . expand("%:e")
@@ -34,8 +34,8 @@ function! s:JsBeautifySimple (line1, line2) range
 
 endfunction
 
-command! -range=% JsBeautifySimple call s:JsBeautifySimple(<line1>, <line2>)
+command! -range=% JsFormat call s:JsFormat(<line1>, <line2>)
 
-autocmd FileType html let b:JsBeautifySimple_filetype = "html"
-autocmd FileType javascript let b:JsBeautifySimple_filetype = "js"
-autocmd FileType css let b:JsBeautifySimple_filetype = "css"
+autocmd FileType html let b:JsFormat_filetype = "html"
+autocmd FileType javascript let b:JsFormat_filetype = "js"
+autocmd FileType css let b:JsFormat_filetype = "css"
